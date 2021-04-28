@@ -128,7 +128,7 @@
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        <h4 class="mb-0 text-sm">{{ Auth::user()->name }}</h4>
                                                     </div>
                                                     <div class="text-right text-muted">
                                                         <small>2 hrs ago</small>
@@ -148,7 +148,7 @@
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        <h4 class="mb-0 text-sm">{{ Auth::user()->name }}</h4>
                                                     </div>
                                                     <div class="text-right text-muted">
                                                         <small>3 hrs ago</small>
@@ -168,7 +168,7 @@
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        <h4 class="mb-0 text-sm">{{ Auth::user()->name }}</h4>
                                                     </div>
                                                     <div class="text-right text-muted">
                                                         <small>5 hrs ago</small>
@@ -188,7 +188,7 @@
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        <h4 class="mb-0 text-sm">{{ Auth::user()->name }}</h4>
                                                     </div>
                                                     <div class="text-right text-muted">
                                                         <small>2 hrs ago</small>
@@ -234,7 +234,7 @@
                                         <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
-                                        <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                                        <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
                                     </div>
                                 </div>
                             </a>
@@ -245,18 +245,6 @@
                                 <a href="#!" class="dropdown-item">
                                     <i class="ni ni-single-02"></i>
                                     <span>My profile</span>
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ni ni-settings-gear-65"></i>
-                                    <span>Settings</span>
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ni ni-calendar-grid-58"></i>
-                                    <span>Activity</span>
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ni ni-support-16"></i>
-                                    <span>Support</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a href="#!" class="dropdown-item">
@@ -270,53 +258,7 @@
             </div>
         </nav>
         <!-- Header -->
-        <!-- Header -->
-        <div class="header bg-primary pb-6">
-            <div class="container-fluid">
-                <div class="header-body">
-                    <div class="row align-items-center py-4">
-                        <div class="col-lg-6 col-7">
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                    <!-- Card stats -->
-                </div>
-            </div>
-        </div>
-        <!-- Page content -->
-        <div class="container-fluid mt--6">
-            <div class="row">
-                <div class="col-xl-8">
-                    <div class="card">
-                        <div class="card-header">
-                            Featured
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer -->
-            <footer class="footer pt-0">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6">
-                        <div class="copyright text-center  text-lg-left  text-muted">
-                            &copy; {{ now()->year }} <a href="https://www.creative-tim.com"
-                                class="font-weight-bold ml-1" target="_blank">Blood Donation</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
+        @yield('content')
     </div>
     <!-- Argon Scripts -->
     <!-- Core -->
