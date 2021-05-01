@@ -67,6 +67,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {{ Request::routeIs('about') ? 'active' : '' }}"
+                                href="{{ route('about') }}">
+                                <i class="ni ni-world text-yellow"></i>
+                                <span class="nav-link-text">About</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="nav-link border-0 bg-white w-75">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShoutoutController;
@@ -29,3 +30,5 @@ Route::get('/donors/create', [DonorController::class, 'create'])->name('donors.c
 
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+Route::get('about', AboutController::class)->name('about');
