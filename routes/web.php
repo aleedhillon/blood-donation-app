@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShoutoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/shoutouts', [ShoutoutController::class, 'index'])->name('shoutouts.index');
+Route::get('/shoutouts/create', [ShoutoutController::class, 'create'])->name('shoutouts.create');
+Route::post('/shoutouts', [ShoutoutController::class, 'store'])->name('shoutouts.store');

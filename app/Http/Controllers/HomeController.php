@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $donors = Donor::all();
+        $donors = Donor::with(['city', 'blood'])->get();
+
         return view('home', [
             'donors' => $donors
         ]);

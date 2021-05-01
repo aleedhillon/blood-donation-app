@@ -30,15 +30,19 @@
                     <div class="col-lg-3 order-lg-2">
                         <div class="card-profile-image">
                             <a href="#">
-                                <img src="../assets/img/theme/team-4.jpg" class="rounded-circle">
+                                <img src="{{ asset('assets/img/theme/team-4.jpg') }}" class="rounded-circle">
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                     <div class="d-flex justify-content-between">
-                        <a href="#" class="btn btn-sm btn-info  mr-4 ">Connect</a>
-                        <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+                        <a href="tel:{{ $donor->phone }}" class="btn btn-sm btn-info  mr-4 ">
+                            Call <i class="fa fa-phone-square"></i>
+                        </a>
+                        <a href="https://wa.me/{{ $donor->phone }}" class="btn btn-sm btn-primary float-right">
+                            Whatsapp <i class="ni ni-badge"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="card-body pt-0">
@@ -46,7 +50,7 @@
                         <div class="col">
                             <div class="card-profile-stats d-flex justify-content-center">
                                 <div>
-                                    <span class="heading">{{ $donor->blood_type }}</span>
+                                    <span class="heading">{{ $donor->blood->name }}</span>
                                     <span class="description">Blood Type</span>
                                 </div>
                             </div>
@@ -63,7 +67,7 @@
                             <i class="ni education_hat mr-2"></i>{{ $donor->phone }}
                         </div>
                         <div class="h5 font-weight-300">
-                            <i class="ni location_pin mr-2"></i>{{ $donor->address }}
+                            <i class="ni location_pin mr-2"></i>{{ $donor->city->name }}
                         </div>
                         <div class="h5 mt-4">
                             <i class="ni business_briefcase-24 mr-2"></i>{{ $donor->bio }}
@@ -80,8 +84,8 @@
         <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6">
                 <div class="copyright text-center  text-lg-left  text-muted">
-                    &copy; {{ now()->year }} <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
-                        target="_blank">Blood Donation</a>
+                    &copy; {{ now()->year }} <a href="/" class="font-weight-bold ml-1" target="_blank">Blood
+                        Donation</a>
                 </div>
             </div>
         </div>

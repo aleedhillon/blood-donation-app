@@ -19,12 +19,12 @@
 
 <body>
     <!-- Sidenav -->
-    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
         <div class="scrollbar-inner">
             <!-- Brand -->
             <div class="sidenav-header  align-items-center">
                 <a class="navbar-brand" href="javascript:void(0)">
-                    <img src="{{ asset('assets/img/brand/blue.png') }}" class="navbar-brand-img" alt="...">
+                    <img src="{{ asset('assets/img/icons/logo.png') }}" class="navbar-brand-img" alt="...">
                 </a>
             </div>
             <div class="navbar-inner">
@@ -33,21 +33,29 @@
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="dashboard.html">
+                            <a class="nav-link {{ Request::routeIs('home') ? 'active' : '' }}" href="/">
                                 <i class="ni ni-tv-2 text-primary"></i>
                                 <span class="nav-link-text">Dashboard</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="icons.html">
+                            <a class="nav-link {{ Request::routeIs('shoutouts.create') ? 'active' : '' }}"
+                                href="{{ route('shoutouts.create') }}">
                                 <i class="ni ni-planet text-orange"></i>
-                                <span class="nav-link-text">Icons</span>
+                                <span class="nav-link-text">Create Shoutout</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="map.html">
-                                <i class="ni ni-pin-3 text-primary"></i>
-                                <span class="nav-link-text">Google</span>
+                            <a class="nav-link {{ Request::routeIs('shoutouts.index') ? 'active' : '' }}"
+                                href="{{ route('shoutouts.index') }}">
+                                <i class="ni ni-book-bookmark text-orange"></i>
+                                <span class="nav-link-text">All Shoutouts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('donors.create') }}">
+                                <i class="ni ni-bulb-61 text-primary"></i>
+                                <span class="nav-link-text">Donate</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -257,6 +265,9 @@
                 </div>
             </div>
         </nav>
+        <div class="">
+
+        </div>
         <!-- Header -->
         @yield('content')
     </div>

@@ -40,4 +40,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function shoutouts()
+    {
+        return $this->hasMany(Shoutout::class, 'user_id', 'id');
+    }
 }
