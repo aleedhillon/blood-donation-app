@@ -70,6 +70,10 @@ class ShoutoutController extends Controller
             'phone' => $request->phone,
             'specific_address' => $request->address,
         ]);
+
+        return redirect()
+            ->route('shoutouts.index')
+            ->with('msg', 'Shoutout has been created.');
     }
 
     /**

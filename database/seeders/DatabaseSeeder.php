@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             BloodTypeSeeder::class,
             CitySeeder::class,
             UserSeeder::class,
-            DonorSeeder::class
+            DonorSeeder::class,
+            ShoutoutSeeder::class
         ]);
     }
 }

@@ -23,10 +23,12 @@ class CreateDonorsTable extends Migration
                 ->constrained()
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('name');
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->unsignedInteger('age');
             $table->string('bio');
-            $table->string('email');
             $table->string('phone');
             $table->timestamps();
         });

@@ -53,13 +53,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('donors.create') }}">
+                            <a class="nav-link {{ Request::routeIs('donors.create') ? 'active' : '' }}"
+                                href="{{ route('donors.create') }}">
                                 <i class="ni ni-bulb-61 text-primary"></i>
                                 <span class="nav-link-text">Donate</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.html">
+                            <a class="nav-link {{ Request::routeIs('profile.edit') ? 'active' : '' }}"
+                                href="{{ route('profile.edit') }}">
                                 <i class="ni ni-single-02 text-yellow"></i>
                                 <span class="nav-link-text">Profile</span>
                             </a>
@@ -250,27 +252,32 @@
                                 <div class="dropdown-header noti-title">
                                     <h6 class="text-overflow m-0">Welcome!</h6>
                                 </div>
-                                <a href="#!" class="dropdown-item">
+                                <a href="{{ route('profile.edit') }}" class="dropdown-item">
                                     <i class="ni ni-single-02"></i>
                                     <span>My profile</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ni ni-user-run"></i>
-                                    <span>Logout</span>
-                                </a>
+                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="ni ni-user-run"></i>
+                                        Logout
+                                    </button>
+                                </form>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="">
-
-        </div>
         <!-- Header -->
         @yield('content')
     </div>
+    <script>
+        setTimeout(function(){
+            document.getElementById('alert').remove();
+        }, 2000);
+    </script>
     <!-- Argon Scripts -->
     <!-- Core -->
     <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>

@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BloodType;
+use App\Models\City;
 use App\Models\Donor;
 use Illuminate\Http\Request;
 
 class DonorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +30,13 @@ class DonorController extends Controller
      */
     public function create()
     {
-        //
+        $cities = City::all();
+        $bloods = BloodType::all();
+
+        return view('donors.create', [
+            'cities' => $cities,
+            'bloods' => $bloods
+        ]);
     }
 
     /**
@@ -35,7 +47,28 @@ class DonorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'age' => ['required'],
+            'bio' => ['required'],
+            'phone' => ['required'],
+            'city' => ['required'],
+            'blood' => ['required'],
+        ]);
+
+        $user = $request->user();
+
+        $donor = Donor::create([
+            'city_id' => $request->city,
+            'blood_type_id' => $request->blood,
+            'user_id' => $user->id,
+            'age' => $request->age,
+            'bio' => $request->bio,
+            'phone' => $request->phone
+        ]);
+
+        return redirect()
+            ->route('home')
+            ->with('msg', 'You have been added as donor');
     }
 
     /**

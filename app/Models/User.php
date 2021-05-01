@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Shoutout::class, 'user_id', 'id');
     }
+
+    public function donor()
+    {
+        return $this->hasOne(Donor::class, 'user_id', 'id');
+    }
 }

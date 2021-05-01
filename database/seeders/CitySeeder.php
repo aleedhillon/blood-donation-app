@@ -8,6 +8,18 @@ use Illuminate\Database\Seeder;
 
 class CitySeeder extends Seeder
 {
+    private $cityNames = [
+        'Muscat',
+        'Bahla',
+        'Barka',
+        'Sohar',
+        'Salalah',
+        'Buraimi',
+        'Haima',
+        'Sure',
+        'Ibra',
+        'Abri'
+    ];
     /**
      * Run the database seeds.
      *
@@ -15,9 +27,10 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        City::factory()
-            ->count(10)
-            ->has(Donor::factory()->count(10), 'donors')
-            ->create();
+        foreach ($this->cityNames as $name) {
+            City::create([
+                'name' => $name
+            ]);
+        }
     }
 }

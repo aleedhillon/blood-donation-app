@@ -22,6 +22,7 @@ class ShoutoutFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => mt_rand(1, 10),
             'blood_type_id' => mt_rand(1, 8),
             'city_id' => mt_rand(1, 10),
             'description' => $this->faker->sentence,

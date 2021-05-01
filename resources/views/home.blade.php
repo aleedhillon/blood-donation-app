@@ -20,6 +20,15 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--6">
+    @if (session()->has('msg'))
+    <div class="row" id="alert">
+        <div class="col-md-6 offset-3">
+            <div class="alert alert-success">
+                {{ session()->get('msg') }}
+            </div>
+        </div>
+    </div>
+    @endif
     <div class="row">
         @foreach ($donors as $donor)
         {{-- Card Start --}}
