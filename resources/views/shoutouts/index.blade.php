@@ -20,7 +20,7 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--6">
-    @foreach ($shoutouts as $shoutout)
+    @forelse ($shoutouts as $shoutout)
     <div class="row">
         <div class="col-md-8 offset-2">
             <div class="card">
@@ -45,7 +45,13 @@
             </div>
         </div>
     </div>
-    @endforeach
+    @empty
+    <div class="row mt-5">
+        <div class="col-md-8 offset-2">
+            <p class="text-white">No Shoutouts yet.</p>
+        </div>
+    </div>
+    @endforelse
     <!-- Footer -->
     <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
