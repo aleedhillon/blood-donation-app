@@ -29,8 +29,37 @@
         </div>
     </div>
     @endif
+    <div class="row mt-5 mb-5">
+        <div class="col-md-8 offset-md-2">
+            <form method="GET" action="{{ route('home') }}">
+                <div class="form-row">
+                    <div class="col">
+                        <select class="form-control" id="city" name="city" required>
+                            <option disabled selected>Please select a city</option>
+                            @foreach ($cities as $city)
+                            <option value="{{ $city->id }}" @if($city->id == $city_id) selected @endif>{{ $city->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select class="form-control" id="blood" name="blood" required>
+                            <option disabled selected>Please select a blood group</option>
+                            @foreach ($bloods as $blood)
+                            <option value="{{ $blood->id }}" @if($blood->id == $blood_id) selected
+                                @endif>{{ $blood->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="submit" class="btn btn-success" value="Search">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="row">
-        @foreach ($donors as $donor)
+        @forelse ($donors as $donor)
         {{-- Card Start --}}
         <div class="col-xl-4 order-xl-2">
             <div class="card card-profile">
@@ -85,8 +114,12 @@
                 </div>
             </div>
         </div>
+        @empty
+        <div class="col-xl-12">
+            <p class="text-center">No donors yet.</p>
+        </div>
         {{-- Card End --}}
-        @endforeach
+        @endforelse
     </div>
     <!-- Footer -->
     <footer class="footer pt-0">

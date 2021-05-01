@@ -23,7 +23,7 @@
         <div class="scrollbar-inner">
             <!-- Brand -->
             <div class="sidenav-header  align-items-center">
-                <a class="navbar-brand" href="javascript:void(0)">
+                <a class="navbar-brand" href="/">
                     <img src="{{ asset('assets/img/icons/logo.png') }}" class="navbar-brand-img" alt="...">
                 </a>
             </div>
@@ -67,28 +67,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="tables.html">
-                                <i class="ni ni-bullet-list-67 text-default"></i>
-                                <span class="nav-link-text">Tables</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">
-                                <i class="ni ni-key-25 text-info"></i>
-                                <span class="nav-link-text">Login</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.html">
-                                <i class="ni ni-circle-08 text-pink"></i>
-                                <span class="nav-link-text">Register</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="upgrade.html">
-                                <i class="ni ni-send text-dark"></i>
-                                <span class="nav-link-text">Upgrade</span>
-                            </a>
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="nav-link border-0 bg-white w-75">
+                                    <i class="ni ni-key-25 text-info"></i>
+                                    <span class="nav-link-text">Logout</span>
+                                </button>
+                            </form>
                         </li>
                     </ul>
                     <!-- Navigation -->
